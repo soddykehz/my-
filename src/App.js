@@ -1,15 +1,21 @@
 import Userinput from "./Userinput";
 import './App.css';
 import Useroutput from "./Useroutput";
+import { useState } from "react";
 
 
 
 function App () {
+const [username, setUsername]= useState ('kolawole')
+function changeName (e) {
+  setUsername(e.target.value)
+}
+
   return(
     <div className="App">
-      <Useroutput/>
-      
-      <Userinput/>
+      <Userinput change={changeName}/>
+      <Useroutput name= "kolawole" address= "iju ishaga lagos"/> 
+      <Useroutput name= {username} address= 'ikeja lagos'/>
     </div>
   )
 }
